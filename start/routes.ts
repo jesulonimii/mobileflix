@@ -47,6 +47,8 @@ Route.get('/verify-reset-token', 'AuthController.verifyResetTokenCallback')
 Route.post('/verify-payment', 'SubscriptionsController.verifyPayments') //paystack webhook
 Route.get('/plans', 'SubscriptionsController.GetPlans')
 
+Route.get('/images/profile', 'AdminController.GetProfileImages')
+
 
 Route.group(() => {
 	Route.post('/accounts', 'AccountsController.add')
@@ -76,6 +78,9 @@ Route.group(() => {
 
 Route.group(() => {
 	Route.group(() => {
+
+		Route.post('/upload/streamtape', 'AdminController.StreamTapeUpload')
+
 
 	})
 }).prefix('admin')
