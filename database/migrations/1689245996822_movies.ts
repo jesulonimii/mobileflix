@@ -12,7 +12,11 @@ export default class extends BaseSchema {
       table.text('description').nullable()
 
       // table.json('video_object') //@jesulonimii, what's the function of this column?
+		// reply ==> @seunoyeniyi, i think it's for the video object returned from the video hosting service, i don't really know how it'll work, @popstar added it
+
       // table.text('plot').nullable() //@jesulonimii, what's the function of this column?
+		// reply ==> @seunoyeniyi, i think it's for the description of what the movie is about
+
       // cast would be a model with relationship to movie
       // season would be a model with relationship to movie
 
@@ -29,7 +33,7 @@ export default class extends BaseSchema {
       table.timestamp('released_at', { useTz: true })
 
       table.string('featured_image_url').nullable() //eg. https://www.example.com/image.jpg
-     
+
       table.string('video_url').nullable() //eg. https://www.example.com/video.mp4
 
 
