@@ -13,7 +13,7 @@
 		"seed-db": "node ace db:seed -i",
 		"test": "node ace test",
 		"migration:run": "node ace migration:run",
-		"migration:refresh": "node ace migration:refresh"
+		"migration:fresh": "node ace migration:fresh"
 	},
 	"devDependencies": {
 		"@japa/preset-adonis": "^1.2.0",
