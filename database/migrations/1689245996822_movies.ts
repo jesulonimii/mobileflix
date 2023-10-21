@@ -7,25 +7,22 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('title')
-      table.string('slug')
-      table.integer('user_id').unsigned().references('id').inTable('users') //poster
+      table.string('slug').nullable()
+      table.integer('user_id').unsigned() //poster
       table.text('description').nullable()
 
-      // table.json('video_object') //@jesulonimii, what's the function of this column?
-		// reply ==> @seunoyeniyi, i think it's for the video object returned from the video hosting service, i don't really know how it'll work, @popstar added it
+      table.json('video_object').nullable()
 
       // table.text('plot').nullable() //@jesulonimii, what's the function of this column?
-		// reply ==> @seunoyeniyi, i think it's for the description of what the movie is about
-
       // cast would be a model with relationship to movie
       // season would be a model with relationship to movie
 
       table.string('genres').nullable() //eg. Action, Drama, Comedy
-      table.enum('type', ['movie', 'series', 'episode', 'documentary', 'trailer']).defaultTo('movie')
+      table.enum('type', ['movie', 'series', 'episode', 'documentary', 'trailer', 'clip', 'show']).defaultTo('movie')
 
       //if type is episode, then parent_id point to the movie_id and season_id point to the season_id(Seasons table)
-      table.integer('parent_id').nullable() //Only applicable to episodes [if type is episode, then parent_id is required]
-      table.integer('season_id').nullable() //Only applicable to series [if type is episode, then season_id is required]
+      table.integer('parent_id').nullable().defaultTo(0) //Only applicable to episodes [if type is episode, then parent_id is required]
+      table.integer('season_id').nullable().defaultTo(0) //Only applicable to series [if type is episode, then season_id is required]
 
       table.integer('duration').nullable()
       table.decimal('average_rating', 2, 1).defaultTo(0.0)
@@ -33,7 +30,7 @@ export default class extends BaseSchema {
       table.timestamp('released_at', { useTz: true })
 
       table.string('featured_image_url').nullable() //eg. https://www.example.com/image.jpg
-
+     
       table.string('video_url').nullable() //eg. https://www.example.com/video.mp4
 
 
