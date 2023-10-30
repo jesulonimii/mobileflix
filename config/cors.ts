@@ -44,7 +44,7 @@ const corsConfig: CorsConfig = {
 	|                     one of the above values.
 	|
 	*/
-	origin: ["*", "cinemoapp.com", "app.cinemoapp.com"],
+	origin: ["cinemoapp.com", "app.cinemoapp.com", "https://cinemoapp.com", "https://app.cinemoapp.com", "*"],
 
 	/*
 	|--------------------------------------------------------------------------
